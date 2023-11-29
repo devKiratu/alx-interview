@@ -28,7 +28,7 @@ def pascal_triangle(n):
     triangle = []
     prev = []
     if n <= 0:
-        triangle.append([])
+        return triangle
     if n >= 1:
         prev.append(1)
         triangle.append(prev)
