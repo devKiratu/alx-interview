@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 Algorithm for building a Pascal's triangle
 """
