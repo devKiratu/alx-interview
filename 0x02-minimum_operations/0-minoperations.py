@@ -11,27 +11,33 @@ def minOperations(n: int) -> int:
     or 0 if impossible
     """
     total_printed: int = 1
-    clipboard: str = ''
+    clipboard: int = 0
     steps = 0
 
     def copy_all():
         """helper function to simulate copy operations"""
         nonlocal clipboard, steps
-        if len(clipboard) == 0:
-            clipboard += "H"
+        if clipboard == 0:
+            clipboard += 1
         else:
             clipboard += clipboard
         steps += 1
-    
+
     def paste():
         """helper function to simulate paste operation"""
         nonlocal total_printed, steps
-        total_printed += len(clipboard)
+        total_printed += clipboard
         steps += 1
 
     if n <= 1:
         return 0
-    
-    # TODO: write algorithm to decide whether to copy+paste or paste
-    
+
+    while total_printed < n:
+        if clipboard == 0:
+            copy_all()
+            paste()
+        if (n - total_printed) % total_printed == 0:
+            copy_all()
+        paste()
+
     return steps
