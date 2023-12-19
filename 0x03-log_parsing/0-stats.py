@@ -28,8 +28,6 @@ def print_stats():
     for status, count in status_map.items():
         if count > 0:
             print(f"{status}: {count}")
-            sys.stdout.flush()
-    sys.stdout.flush()
 
 
 try:
@@ -45,6 +43,7 @@ try:
             current = status_map[code]
             status_map[code] = current + 1
         counter += 1
-except KeyboardInterrupt:
+except Exception:
+    pass
+finally:
     print_stats()
-    sys.stdout.flush()
