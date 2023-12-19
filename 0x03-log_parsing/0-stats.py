@@ -39,11 +39,9 @@ try:
             print_stats()
             counter = 0
         line = line.rstrip()
-        file_size += len(line)
-        code_str = str.rfind(line, '1.1')
-        start = code_str + 5
-        end = start + 3
-        code = line[start:end]
+        line_details = line.split()
+        file_size += int(line_details[-1])
+        code = line_details[-2]
         if status_map.get(code, None) is not None:
             current = status_map[code]
             status_map[code] = current + 1
