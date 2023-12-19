@@ -37,12 +37,14 @@ try:
             counter = 0
         line = line.rstrip()
         line_details = line.split()
-        file_size += int(line_details[-1])
-        code = line_details[-2]
-        if status_map.get(code, None) is not None:
-            current = status_map[code]
-            status_map[code] = current + 1
-        counter += 1
+
+        # update status code and line counter if line is in correct format
+        if len(line_details) == 9:
+            file_size += int(line_details[-1])
+            code = line_details[-2]
+            if status_map.get(code, None) is not None:
+                status_map[code] += 1
+            counter += 1
 except Exception:
     pass
 finally:
