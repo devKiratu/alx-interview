@@ -6,7 +6,6 @@ This script reads stdin line by line and computes metrics organized as follows:
 Possible status codes: 200, 301, 400, 401, 403, 404, 405 and 500
 """
 import sys
-import traceback
 
 
 counter = 0
@@ -46,7 +45,6 @@ try:
             current = status_map[code]
             status_map[code] = current + 1
         counter += 1
-except KeyboardInterrupt as e:
+except KeyboardInterrupt:
     print_stats()
     sys.stdout.flush()
-    traceback.print_exc(file=sys.stdout)
