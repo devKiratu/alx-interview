@@ -39,7 +39,7 @@ try:
         line_details = line.split()
 
         # update status code and line counter if line is in correct format
-        if len(line_details) == 9:
+        if len(line_details) > 4:
             file_size += int(line_details[-1])
             code = line_details[-2]
             if status_map.get(code, None) is not None:
