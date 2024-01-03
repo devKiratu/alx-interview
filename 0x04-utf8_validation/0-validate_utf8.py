@@ -10,13 +10,13 @@ def validUTF8(data):
     """
     bin_data = []
     for item in data:
-        bin_item = bin(item)[2:]
+        bin_item = format(item, '08b')
         bin_data.append(bin_item[-8:])
     i = 0
     try:
         while i < len(bin_data):
             # check for 1-byte character
-            if len(bin_data[i]) <= 7:
+            if bin_data[i][0] == '0':
                 i += 1
                 continue
             # check for 2-byte character
@@ -41,5 +41,5 @@ def validUTF8(data):
                 else:
                     return False
         return True
-    except Exception:
+    except IndexError:
         return False

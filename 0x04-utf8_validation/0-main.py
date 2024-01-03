@@ -13,3 +13,24 @@ print(validUTF8(data))
 
 data = [229, 65, 127, 256]
 print(validUTF8(data))
+
+# more test data
+# Incomplete multi-byte character at the end:
+data = [195, 66, 67, 68, 69]
+print(validUTF8(data))  # Expected output: False
+
+# Invalid multi-byte character: An invalid multi-byte character with the first byte missing.
+data = [206, 145]
+print(validUTF8(data))  # Expected output: False
+
+# Overlong encoding: Using an overlong encoding for the character 'A'.
+data = [192, 128, 65]
+print(validUTF8(data))  # Expected output: False
+
+# Mixed valid and invalid characters: A mix of valid and invalid characters.
+data = [72, 101, 108, 108, 195, 66, 67, 68, 69]
+print(validUTF8(data))  # Expected output: False
+
+# Invalid multi-byte character at the beginning:
+data = [206, 66, 67, 68, 69]
+print(validUTF8(data))  # Expected output: False
