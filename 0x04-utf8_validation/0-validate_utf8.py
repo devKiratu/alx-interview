@@ -18,22 +18,21 @@ def validUTF8(data):
             # check for 1-byte character
             if bin_data[i][0] == '0':
                 i += 1
-                continue
             # check for 2-byte character
-            if bin_data[i][0:3] == '110':
+            elif bin_data[i][0:3] == '110':
                 if bin_data[i + 1][0:2] == '10':
                     i += 2
                 else:
                     return False
             # check for 3-byte character
-            if bin_data[i][0:4] == '1110':
+            elif bin_data[i][0:4] == '1110':
                 if bin_data[i + 1][0:2] == '10' and\
                  bin_data[i + 2][0:2] == '10':
                     i += 3
                 else:
                     return False
             # check for 4-byte character
-            if bin_data[i][0:5] == '11110':
+            elif bin_data[i][0:5] == '11110':
                 if bin_data[i + 1][0:2] == '10' and\
                   bin_data[i + 2][0:2] == '10' and\
                   bin_data[i + 3][0:2] == '10':
@@ -41,5 +40,5 @@ def validUTF8(data):
                 else:
                     return False
         return True
-    except IndexError:
+    except IndexError as e:
         return False

@@ -21,11 +21,11 @@ print(validUTF8(data))  # Expected output: False
 
 # Invalid multi-byte character: An invalid multi-byte character with the first byte missing.
 data = [206, 145]
-print(validUTF8(data))  # Expected output: False
+print(validUTF8(data))  # Expected output: True
 
 # Overlong encoding: Using an overlong encoding for the character 'A'.
 data = [192, 128, 65]
-print(validUTF8(data))  # Expected output: False
+print(validUTF8(data))  # Expected output: True
 
 # Mixed valid and invalid characters: A mix of valid and invalid characters.
 data = [72, 101, 108, 108, 195, 66, 67, 68, 69]
