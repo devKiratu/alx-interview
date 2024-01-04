@@ -39,6 +39,8 @@ def validUTF8(data):
                     i += 4
                 else:
                     return False
+            else:
+                return False
         return True
     except IndexError as e:
         return False

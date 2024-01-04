@@ -34,3 +34,17 @@ print(validUTF8(data))  # Expected output: False
 # Invalid multi-byte character at the beginning:
 data = [206, 66, 67, 68, 69]
 print(validUTF8(data))  # Expected output: False
+
+# from leetcode
+data = [197,130,1]
+print(validUTF8(data), True)
+
+data = [235,140,4]
+print(validUTF8(data), False)
+
+# my test cases
+data = [130]
+print(validUTF8(data), False)
+
+data = [256]
+print(validUTF8(data), True)
