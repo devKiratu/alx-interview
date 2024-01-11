@@ -33,3 +33,33 @@ try:
 except ValueError:
     print("N must be a number")
     sys.exit(1)
+
+# calculate valid possibilities
+cols = set()
+pos_x = set()  # r + c
+neg_x = set()  # r - c
+sol = []
+
+
+def place_queen(r: int) -> None:
+    """recursively place n queens"""
+    if r == n:
+        # we have successfully placed the n queens
+        print(sol)
+        return
+    for c in range(n):
+        if c not in cols and (r + c) not in pos_x and (r - c) not in neg_x:
+            cols.add(c)
+            pos_x.add(r + c)
+            neg_x.add(r - c)
+            sol.append([r, c])
+
+            place_queen(r + 1)
+
+            cols.remove(c)
+            pos_x.remove(r + c)
+            neg_x.remove(r - c)
+            sol.remove([r, c])
+
+
+place_queen(0)
