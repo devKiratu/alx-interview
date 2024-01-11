@@ -56,6 +56,7 @@ def place_queen(r: int) -> None:
 
             place_queen(r + 1)
 
+            # bactrack - clean up after dead end or successful completion
             cols.remove(c)
             pos_x.remove(r + c)
             neg_x.remove(r - c)
