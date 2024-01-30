@@ -24,4 +24,18 @@ def makeChange(coins, total):
     """
     if total <= 0:
         return 0
+    if total in coins:
+        return 1
+
+    coins.sort()
+    right = len(coins) - 1
+    count = 0
+    while right >= 0:
+        if total >= coins[right]:
+            total -= coins[right]
+            count += 1
+        else:
+            right -= 1
+    if total == 0:
+        return count
     return -1
