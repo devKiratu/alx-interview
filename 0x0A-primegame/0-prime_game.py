@@ -65,8 +65,10 @@ def isWinner(x, nums):
 
     if ben > maria:
         return 'Ben'
-    else:
+    elif maria > ben:
         return 'Maria'
+    else:
+        return None
 
 
 def generate_primes(n):
