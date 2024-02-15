@@ -49,7 +49,7 @@ def isWinner(x, nums):
         - x : the number of rounds
         - nums: an array of n
     """
-    if x == 0 or len(nums) == 0 or x != len(nums):
+    if x != len(nums):
         return None
     ben = 0
     maria = 0
@@ -73,7 +73,7 @@ def isWinner(x, nums):
 
 def generate_primes(n):
     """
-    returns a list of prime numbers between 1 and n
+    returns a list of prime numbers from 1 upto and including n
     """
     primes = []
     for i in range(2, n+1):
