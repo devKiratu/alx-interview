@@ -49,7 +49,7 @@ def isWinner(x, nums):
         - x : the number of rounds
         - nums: an array of n
     """
-    if x == 0 or len(nums) == 0:
+    if x == 0 or len(nums) == 0 or x != len(nums):
         return None
     ben = 0
     maria = 0
